@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Enactus Registration</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/9689/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					alert("Form Data Submitted :)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+		}
+	</script>
+</head>
+<body>
+    <div class=container>
+        <header class="header">
+          <h1 id = "title" class="text-center">Enactus ZC Spring Recruitment</h1>
+          <p id="description" class="description text-center">Thank you for your intent to join our team</p>
+        </header>
+        <form id="myForm">
+          <div class="form-group">
+            <label for="name" id = "name-label">Name</label>
+            <input type="text" name="Name" id = "name" class = "form-control" placeholder="Enter your name" required />
+          </div>
+          <div class="form-group">
+            <label for="email" id="email-label">Email</label>
+            <input type="email" id ="email" name="Email" class="form-control" placeholder="Enter your Email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone-number" id = "number-label">Phone Number</label>
+            <input type="tel" name="Phone number" id = "phone-number" class = "form-control" placeholder="Enter your phone number" required />
+          </div>
+	<div class="form-group">
+            <label for="ID" id = ID">ID</label>
+            <input type="number" name="ID" id = "ID" class = "form-control" placeholder="Enter your ID number" required />
+          </div>
+           <div class="form-group">
+            <label for="Hours" id = "number-label">How many hours you intent to invest for this position weekly?</label>
+            <input type="number" name="Hours" id = "Hours" class = "form-control" max="168" min="1" placeholder="Enter number of hours" required />
+          </div>
+          <div class="form-group">
+            <p>Year</p>
+            <select name="Year" id="dropdown" required>
+              <option disabled selected value>Select your current Year</option>
+              <option value="1">Foundation</option>
+              <option value="2">Year 2</option>
+              <option value="3">Year 3</option>
+              <option value="4">Year 4</option>
+              <option value="5">Year 5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <p>Major (or expected)</p>
+            <select name="Major" id="dropdown" required>
+              <option disabled selected value>Select your major (or expected)</option>
+              <option value="ENV">Environmental</option>
+              <option value="REE">Renewable</option>
+              <option value="BMS">Biomedical</option>
+              <option value="NANTEC">Nano Technology</option>
+              <option value="PEU">Physics</option>
+              <option value="NANSC">Nano Science</option>
+              <option value="MATSCI">Materials Science</option>
+              <option value="CIE">CIE</option>
+              <option value="SPC">Aerospace</option>
+            </select>
+          </div>
+          <div class = "form-group">
+            <p>Which position you are interested in?</p>
+            <label>
+              <input type="radio" name="Skill" value="graphic" class="input-radio" checked />Graphic Design</label>
+            <label>
+              <input type="radio" name="Skill" value="video-edit" class="input-radio"  />Video-Editing</label>
+            
+             <label>
+            <input type="radio" name="Skill" value="PM" class="input-radio" />Project Management</label>
+           
+<label>
+              <input type="radio" name="Skill" value="HR" class="input-radio" />HR</label>
+<label>
+              <input type="radio" name="Skill" value="FR" class="input-radio" />FR</label>
+		
+            
+		<label>
+            <input type="radio" name="Skill" value="PR" class="input-radio" />PR</label>
+<label>
+              <input type="radio" name="Skill" value="IT" class="input-radio" />Web Dev.</label>
+<label>
+              <input type="radio" name="Skill" value="Marketing" class="input-radio" />Content writing</label>
+          </div>
+          <div class = "form-group">
+            <p>Which second position you are interested in? (if any)</p>
+<label>
+              <input type="radio" name="Skills" value="graphic" class="input-radio" checked />Graphic Design</label>
+            <label>
+              <input type="radio" name="Skills" value="video-edit" class="input-radio"  />Video-Editing</label>
+              <label>
+                <input type="radio" name="Skills" value="PM" class="input-radio" />Project Management</label>
+            <label>
+              <input type="radio" name="Skills" value="HR" class="input-radio" />HR</label>
+            
+           
+            <label>
+              <input type="radio" name="Skills" value="FR" class="input-radio" />FR</label>
+		
+		<label>
+            <input type="radio" name="Skills" value="PR" class="input-radio" />PR</label>
+            <label>
+              <input type="radio" name="Skills" value="IT" class="input-radio" />Web Dev.</label>
+            <label>
+              <input type="radio" name="Skills" value="Marketing" class="input-radio" />Content writing</label>
+          </div>
+          <div class="form-group">
+            <p>Why do you want to join this position or what is your motivation?(or any other comments)</p>
+            <textarea name="Motivation" id="textarea" placeholder="Enter your motivation..." class="input-textarea"></textarea>
+          </div>
+          <label>
+            <input type="radio" name="h" value="yes" class="input-radio" required /><strong><mark><i>Do not Choose this</i></mark></strong></label>
+          <div class="form-group">
+            <button type="submit" id="submit" class="submit-button" onclick="SubForm()">Submit</button>
+          </div>
+        </form>
+      </div>
+      <footer>
+        If you did not get message your "Form Data Submitted :)" re-submit it or contact us (enactus-zc@zewailcity.edu.eg)
+      </footer>
+</body>
+</html>
